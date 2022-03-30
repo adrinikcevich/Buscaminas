@@ -1,0 +1,277 @@
+*{
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+:root{
+    --tamañoCelda: 30px;
+}
+body{
+    background: radial-gradient(#64a7e6, #040838);
+    font-family: 'Roboto Condensed', sans-serif;
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
+    align-items: center;
+    user-select: none;
+    justify-content: center;
+    position: relative;
+}
+.app{
+    flex-grow: 2;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+}
+.game-title{
+    color: white;
+    font-size: 4rem;
+    flex-grow: 1;
+    display: flex;
+    align-items: center;
+    gap: .5rem;
+    position: relative;
+}
+.game-title::after{
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 50%;
+    background-color: rgba(255, 255, 255, 0.3);
+    border-radius: 100%;
+    filter: blur(10px);
+}
+.header{
+    color: white;
+    display: flex;
+    width: 100%;
+    justify-content: space-evenly;
+}
+.divisor{
+    background-color: white;
+    width: 1px;
+    border-radius: 100px;
+}
+.tablero{
+    color: white;
+    font-size: 1rem;
+    font-weight: 900;
+    background-color: rgba(255, 255, 255, 0.2);
+    outline: 2px solid white;
+    box-shadow: 0 0 40px 0px rgba(255, 255, 255, 0.6), 0 0 20px 0px rgba(255, 255, 255, 0.6) inset;
+    overflow: hidden;
+}
+
+.celda{
+    border-top: 2px solid rgba(255, 255, 255, 1);
+    border-left: 2px solid rgba(255, 255, 255, 1);
+    border-bottom: 2px solid rgba(255, 255, 255, 0.3);
+    border-right: 2px solid rgba(255, 255, 255, 0.3);
+    background-color: rgba(255, 255, 255, .4);
+    text-align: center;
+    width: var(--tamañoCelda);
+    height: var(--tamañoCelda);
+    min-width: var(--tamañoCelda);
+    max-width: var(--tamañoCelda);
+}
+.iconify[data-icon="icon-park:flag"]{
+    transform: translateY(2px);
+}
+.header{
+    padding: 1rem;
+    display: flex;
+    gap: 1rem;
+    
+}
+.celda-marcada{
+    background-color: rgba(255, 255, 255, 0.5);
+}
+.contador-marcas{
+    display: flex;
+    align-items: center;
+}
+.bomb{
+    background-color: rgb(219, 72, 72);
+    border-top: 2px solid rgb(251, 155, 155);
+    border-left: 2px solid rgb(251, 155, 155);
+    border-bottom: 2px solid rgb(104, 7, 7);
+    border-right: 2px solid rgb(104, 7, 7);
+}
+
+
+.espacio{
+    border-top: 2px solid rgba(255, 255, 255, .5);
+    border-left: 2px solid rgba(255, 255, 255, .5);
+    border-bottom: 2px solid rgba(255, 255, 255, 0.15);
+    border-right: 2px solid rgba(255, 255, 255, 0.15);
+    background-color: rgba(255, 255, 255, 0.2);
+}
+[class="celda 1"]{
+    color: rgb(22, 22, 22); 
+}
+[class="celda 2"]{
+    color: rgb(40, 116, 27);
+}
+[class="celda 3"]{
+    color: rgb(238, 39, 39);
+}
+[class="celda 4"]{
+    color: rgb(29, 27, 116);
+}
+[class="celda 5"]{
+    color: rgb(161, 102, 46);
+}
+[class="celda 6"]{
+    color: rgb(116, 27, 27);
+}
+[class="celda 7"]{
+    color: rgb(61, 27, 27);
+}
+[class="celda 8"]{
+    color: rgb(61, 27, 27);
+}
+
+
+.modal-ganador__container{
+    position: absolute;
+    background-color: rgba(0, 0, 0, 0.3);
+    width: 100%;
+    height: 100%;
+    display: grid;
+    place-items: center;
+    
+}
+.modal-ganador{
+    background-color: white;
+    gap: 1rem;
+    border-radius: 1rem;
+    padding: 4rem;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: space-evenly;
+    box-shadow: 0 0 50px 10px rgba(0, 0, 0, 0.5);
+    animation: modal .5s;
+}
+
+@keyframes modal {
+    0%{
+        transform: translateY(-50%);
+        opacity: 0;
+    }
+    100%{
+        transform: translateY(0%);
+        opacity: 1;
+    }
+}
+.modal-config__container{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    display: grid;
+    place-items: center;
+    animation: modalConfigContainer .2s both;
+}
+@keyframes modalConfigContainer {
+    0%{
+        backdrop-filter: blur(0px);
+        background-color: rgba(0, 0, 0, 0);
+    }
+    100%{
+        backdrop-filter: blur(2px);
+        background-color: rgba(0, 0, 0, 0.3);
+    }
+}
+@keyframes modalConfig {
+    0%{
+        opacity: 0;
+    }
+    100%{
+        opacity: 1;
+    }
+}
+.modal-config{
+    background-color: white;
+    gap: 1rem;
+    padding: 1rem;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: space-evenly;
+    position: relative;
+    border: 1px solid rgb(80, 80, 80);
+    animation: modalConfig .2s both;
+}
+.modal-config__title{
+    margin: .5rem;
+}
+.btn-closemodal{
+    display: flex;
+    font-size: 1rem;
+    position: absolute;
+    top: 0;
+    right: 0;
+    margin: .5rem;
+    background-color: rgb(200, 200, 200);
+    border: 1px solid rgb(80, 80, 80);;
+    color: rgb(80, 80, 80);
+}
+.btn-closemodal:hover{
+    background-color: rgb(220, 220, 220);
+    color: rgb(120, 120, 120);
+    border: 1px solid rgb(120, 120, 120);
+}
+#tamaño{
+    border: 1px solid rgb(120, 120, 120);
+    outline: none;
+}
+#tamaño:focus{
+    outline: 1px solid rgb(120, 120, 120);
+}
+
+#dificultad{
+    border: 1px solid rgb(120, 120, 120);
+    outline: none;
+}
+#dificultad:focus{
+    outline: 1px solid rgb(120, 120, 120);
+}
+.config-btn{
+    display: flex;
+    align-items: center;
+    border: none;
+    outline: none;
+    font-size: 1.5rem;
+    background: none;
+    color: rgba(255, 255, 255, 1);
+    cursor: pointer;
+}
+.config-btn > svg{
+    transition: color .3s, transform .3s;
+
+}
+.config-btn:hover > svg{
+    color: rgba(255, 255, 255, 0.6);
+    transform: rotate(40deg);
+}
+
+button{
+    font-family: 'Roboto Condensed', sans-serif;
+
+}
+.nueva-partida{
+    border: none;
+    outline: none;
+    background: none;
+    color: white;
+    font-size: 1rem;
+    cursor: pointer;
+}
+.nueva-partida:hover{
+    color: rgba(255, 255, 255, 0.6);
+}
+.hidden{
+    display: none;
+}

@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Buscaminas Pro</title>
+    <link rel="stylesheet" href="index.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed&family=Roboto:wght@100;300;400"
+        rel="stylesheet">
+</head>
+
+<body oncontextmenu="return false">
+    <h1 class="game-title">BUSCAMINAS PRO<span class="iconify" data-icon="la:bomb"></span>
+    </h1>
+    <div class="app">
+        <div class="header">
+            <button class="nueva-partida">Nueva Partida</button>
+
+            <div class="divisor"></div>
+
+            <div class="contador-marcas">
+                Marcas:&nbsp
+                <span class="marcas"></span>
+            </div>
+
+            <div class="divisor"></div>
+
+            <button class="config-btn"><span class="iconify" data-icon="ci:settings-filled"></span>
+            </button>
+            
+
+        </div>
+
+        <table class="tablero" cellspacing="2" cellpadding="0">
+        </table>
+        
+    </div>
+    <div class="modal-ganador__container hidden">
+        <div class="modal-ganador">
+            <h1>GANASTE!!!</h1>
+            <button class="jugar-de-nuevo">Jugar de Nuevo</button>
+        </div>
+    </div>
+    <div class="modal-config__container hidden">
+        
+        <div class="modal-config">
+            <button class="btn-closemodal"><span class="iconify" data-icon="heroicons-solid:x"></span>
+            </button>
+            <h2 class="modal-config__title">Configuración</h2>
+            <div class="configuracion__tamaño">
+                <label for="tamaño">Tamaño:</label>
+                <select name="tamaño" id="tamaño">
+
+                    <option value="small">Pequeño</option>
+                    <option value="medium" selected="selected">Mediano</option>
+                    <option value="big">Grande</option>
+                </select>
+            </div>
+            <div class="configuracion__dificultad">
+                <label for="dificultad">Dificultad:</label>
+                <select name="dificultad" id="dificultad">
+                    <option value="facil">Fácil</option>
+                    <option value="normal" selected="selected">Normal</option>
+                    <option value="dificil">Difícil</option>
+                    <option value="imposible">Imposible</option>
+                </select>
+            </div>
+        </div>
+    </div>
+    <script src="index.js"></script>
+    <script src="https://code.iconify.design/2/2.2.0/iconify.min.js"></script>
+
+</body>
+
+</html>
